@@ -1,0 +1,113 @@
+
+body {
+	font-family: Helvetica;
+	position: relative;
+	margin: 0;
+}
+
+.wrapper {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+	grid-gap: 1em;
+	padding: 1em;
+	justify-items: center; 
+}
+
+/*de modaalContent in de wrapper bij voorbaat verbergen*/
+.wrapper .modaalContent {
+	display: none;
+}
+
+/*h1 zo breedt als het maar kan behalve 2 gridcellen voor login en registreer*/
+h1 {
+	grid-column: 1/-3;
+}
+
+img, form {
+	box-shadow: 0 0 1em rgba(0, 0, 0, 0.5);
+}
+
+/*de afbeeldingen van de modale knoppen wat verkleinen*/
+img.modaalKnop {
+	max-width: 150px;
+	transition: transform .3s ease-out, box-shadow .4s ease-out;
+}
+
+img.modaalKnop:hover {
+	transform: scale(1.1);
+	box-shadow: .5em .5em 2em rgba(0, 0, 0, 0.7);
+}
+
+.modaalKnop {
+	cursor: pointer;
+}
+
+.modaalKnop:hover {
+	color: red;
+}
+
+/*het album opmaken*/
+.album {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	max-width: 80vw;
+	grid-gap: 1.5em;
+}
+
+.grid img {
+	max-width: 100%;
+}
+
+/*het modale venster opmaken*/
+.modaalAchtergrond {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: grid;
+	justify-items: center;
+	align-items: center;
+}
+
+.modaal {
+	max-width: 80%;
+	padding: 2em;
+	border-radius: 1em;
+	background-color: #FFF;
+	max-height: 90vh;
+	overflow-y: auto;
+	display: grid;
+	grid-template-rows: auto 1fr;
+	grid-row-gap: 1em;
+	animation: opkomen 1s ease-in-out forwards;
+}
+
+@keyframes opkomen {
+	0% {transform: scale(0)}\
+	20% {transform: scale(1.2)}
+	30% {transform: scale(0.9)}
+	40% {transform: scale(1.05)}
+	50% {transform: scale(0.975)}
+	60% {transform: scale(1.0125)}
+	70% {transform: scale(0.995)}
+	80% {transform: scale(1.006)}
+	90% {transform: scale(0.9997)}
+	100% {transform: scale(1)}
+}
+
+/*sluitKnop stylen*/
+.sluitKnop {
+	width: 2em;
+	justify-self: end;
+	font-size: 2em;
+	font-weight: 900;
+	transform: translateX(0.5em);
+	border: 0;
+
+}
+
+.sluitKnop:hover {
+	color: red;
+}
